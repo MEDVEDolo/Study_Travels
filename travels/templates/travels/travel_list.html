@@ -1,0 +1,15 @@
+{% extends 'Core/base.html' %}
+{% block title %}Travels | Books{% endblock %}
+{% block content %}
+    <h1 class="text-center mb-4">Travels</h1>
+    <div class="frc flex-wrap gap-4 mw-1000px mx-auto">
+        {% for travel in travels %}
+            <a href="{% url 'travel_detail' travel_id=travel.id %}" 
+            class="movie_card text-decoration-none text-light fc mw-300px w-100 hover-scale-2">
+            <img src="{{ travel.photo.url }}" alt="">
+            <h3 class="mt-2">{{ travel.title }}</h3>
+            <span class="me-md-auto d-inline">Автор путешествия: {{ travel.author }}</span>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
